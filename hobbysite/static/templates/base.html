@@ -1,0 +1,39 @@
+{% load staticfiles %
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DC Maxecuters{% block page_title %}{% endblock %}</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/base.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- todo use the file tab formatting from site -->
+        <a class="pull-left {% if nbar == 'home' %}active{% endif %}" href="/">
+            <img src="{% static 'images/MaxecuterGoldWings.gif' %}" width="100" alt="Max Logo" title="DC Maxecuters">
+        </a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'about' %}active{% endif %}" id="id_about" href="about">About</a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'anno' %}active{% endif %}" id="id_anno" href="/">Announcements</a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'meetings' %}active{% endif %}" id="id_meetings" href="#">Meetings</a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'maxfax' %}active{% endif %}" id="id_maxfax" href="maxfax">MaxFax</a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'photos' %}active{% endif %}" id="id_photos" href="#">Photos</a>
+        <a class="btn navbar-btn navbar-left {% if nbar == 'events' %}active{% endif %}" id="id_events" href="{% url 'xxevents' %}">Events</a>
+        {% if user.email %}
+            <span class="navbar-text pull-right">{{ user.email }}</span>
+        {% else %}
+            <a class="btn navbar-btn navbar-right" id="id_login" href="#">Sign in</a>
+        {% endif %}
+        <!-- todo add a second row of mostly static links: CAAMA FAC Tips Plans Links -->
+    </div>
+    </nav>
+    
+    <div class="container">
+    <h1>{% block header_text %}{% endblock %}</h1>
+    {% block main_content %}{% endblock %}
+    </div>
+
+</body>
+</html>

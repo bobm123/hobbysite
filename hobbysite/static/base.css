@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ABFAFA;
+    font-size: 14px;
+    min-width: 720px;
+ }
+
+.navbar-default {
+    background-color: #9BDADA;
+    border-color: #ABFAFA;
+}
+
+
+#id_text {
+    margin-top: 2ex;
+}
