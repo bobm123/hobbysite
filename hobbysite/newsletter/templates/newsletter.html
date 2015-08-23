@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_title %}-MaxFax{% endblock %}
+
+{% block header_text %}MaxFax{% endblock %}
+
+{% block main_content %}
+    {% for ylabel in filter_keys %}
+        <a class="btn btn-primary {% if year == ylabel %}active{% endif %}" 
+           href="{% url 'browse_by_year' year=ylabel %}">
+           {{ ylabel }}
+        </a>
+    {% endfor %}
+
+    <h3>Archive for {{ year }}</h3>
+    <div class="col-lg-8">
+    {% for newsletter in newsletters %}
+        <div class="col-sm-4">
+        {{ newsletter.name }}<br/>
+        <a href="{% static 'contents' %}/{{ newsletter.pdf }}" target="_new">
+            <img src="{% static 'contents' %}/{{ newsletter.cover }}" width="150" alt="Cover" title=""><br/>
+        </a>
+        {{ newsletter.description }}<br/>
+        <br/>
+        </div>
+    {% empty %}
+        <div class="col-sm-4">
+        Sorry, no issues found for {{ year }}
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

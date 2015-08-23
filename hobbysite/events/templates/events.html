@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block page_title %}-Events{% endblock %}
+
+{% block header_text %}Coming Events{% endblock %}
+
+{% block main_content %}
+<table id="id_events_table" class="table">
+{% for item in events_by_month %}
+    <tr><td>
+    <h4>{{ item.0 }}</h4> <!-- the month name -->
+    {% if item.1 %}
+        {% for event in item.1 %}
+            <strong><a href="{{ event.flyer }}" target=_new>{{ event.name }}</a> - {{ event.date }}</strong><br/>
+            Location: {{ event.location }}<br/>
+            Contact: {% if event.contact_email %}
+                <a href="mailto:{{ event.contact_email }}">{{ event.contact_name }}</a>
+            {% else %}
+                {{ event.contact_name }}
+            {% endif %}
+            {% if event.contact_phone %}
+                , {{ event.contact_phone }}<br/>
+            {% else %}
+            <br/>
+            {% endif %}
+            <br/>
+        {% endfor %}
+    {% endif %}
+    </td></tr>
+{% endfor %}
+</table>
+{% endblock %}
