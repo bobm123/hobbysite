@@ -63,5 +63,3 @@ collection/media
 
 # Ignoring .pdf files (for now)
 *.pdf
-
-static/
