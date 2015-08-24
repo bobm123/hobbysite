@@ -26,8 +26,8 @@ class NewVisitorTest(FunctionalTest):
         #    'Events'
         #))
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.assertIn('JANUARY', page_text)
-        self.assertIn('DECEMBER', page_text)
+        self.assertIn('January', page_text)
+        self.assertIn('December', page_text)
         
 
 
