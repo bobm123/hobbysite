@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <!-- todo use the file tab formatting from site -->
+    <a class="pull-left {% if nbar == 'home' %}active{% endif %}" href="/">
+      <img src="{% static 'images/MaxecuterGoldWings.gif' %}" width="100" alt="Max Logo" title="DC Maxecuters">
+    </a>
+  </div>
+  <div>
+    <ul class="nav navbar-nav">
+      <li {% if nbar == 'about' %}class = "active"{% endif %}><a href="#">About</a></li>
+      <li {% if nbar == 'anno' %}class = "active"{% endif %}><a href="#">Announcements</a></li>
+      <li {% if nbar == 'meetings' %}class = "active"{% endif %}><a href="#">Meetings</a></li>
+      <li {% if nbar == 'maxfax' %}class = "active"{% endif %}><a href="{% url 'browse_by_year' %}">MaxFax</a></li>
+      <li {% if nbar == 'photos' %}class = "active"{% endif %}><a href="#">Photos</a></li>
+      <li {% if nbar == 'events' %}class = "active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+    </ul>
+  </div>
+
+</div>
+</nav>

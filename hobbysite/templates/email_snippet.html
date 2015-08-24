@@ -1,0 +1,6 @@
+        {% if user.email %}
+            <span class="navbar-text pull-right">{{ user.email }}</span>
+        {% else %}
+            <a class="btn navbar-btn navbar-right" id="id_login" href="#">Sign in</a>
+        {% endif %}
+        <!-- todo add a second row of mostly static links: CAAMA FAC Tips Plans Links -->

@@ -10,6 +10,7 @@
     <tr><td>
     <h4>{{ item.0 }}</h4> <!-- the month name -->
     {% if item.1 %}
+      <div class="container-fluid">
         {% for event in item.1 %}
             <strong><a href="{{ event.flyer }}" target=_new>{{ event.name }}</a> - {{ event.date }}</strong><br/>
             Location: {{ event.location }}<br/>
@@ -25,6 +26,7 @@
             {% endif %}
             <br/>
         {% endfor %}
+      <div>
     {% endif %}
     </td></tr>
 {% endfor %}
