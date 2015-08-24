@@ -10,6 +10,7 @@ def browse_by_year(request, year='2015'):
     return render(request, 'newsletter.html', {
         'newsletters': newsletters,
         'year' : year,
+        'nbar': 'maxfax',
         'filter_keys' : ['2010', '2011', '2012', '2013', '2014', '2015'],
     })
 

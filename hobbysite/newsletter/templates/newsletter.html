@@ -2,32 +2,39 @@
 {% load staticfiles %}
 {% block page_title %}-MaxFax{% endblock %}
 
-{% block header_text %}MaxFax{% endblock %}
-
-{% block main_content %}
+{% block extra_nav %}
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
     {% for ylabel in filter_keys %}
-        <a class="btn btn-primary {% if year == ylabel %}active{% endif %}" 
+        <a class="btn navbar-btn navbar-left {% if year == ylabel %}active{% endif %}" 
            href="{% url 'browse_by_year' year=ylabel %}">
            {{ ylabel }}
         </a>
     {% endfor %}
+    </div>
+    </nav>
+{% endblock %}
 
-    <h3>Archive for {{ year }}</h3>
-    <div class="col-lg-8">
+<div class="container">    
+{% block header_text %}MaxFax{% endblock %}
+    
+{% block main_content %}
+
+    <h3>MaxFax Archive for {{ year }}</h3>
     {% for newsletter in newsletters %}
-        <div class="col-sm-4">
-        {{ newsletter.name }}<br/>
+        <div class="col-md-2">
         <a href="{% static 'contents' %}/{{ newsletter.pdf }}" target="_new">
+            {{ newsletter.name }}<br/>
             <img src="{% static 'contents' %}/{{ newsletter.cover }}" width="150" alt="Cover" title=""><br/>
         </a>
         {{ newsletter.description }}<br/>
         <br/>
         </div>
     {% empty %}
-        <div class="col-sm-4">
+        <div class="col-md-2">
         Sorry, no issues found for {{ year }}
         </div>
     {% endfor %}
+    </div>
 
-</div>
 {% endblock %}

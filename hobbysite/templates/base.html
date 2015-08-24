@@ -18,7 +18,7 @@
         <a class="btn navbar-btn navbar-left {% if nbar == 'anno' %}active{% endif %}" id="id_anno" href="#">Announcements</a>
         <a class="btn navbar-btn navbar-left {% if nbar == 'meetings' %}active{% endif %}" id="id_meetings" href="#">Meetings</a>
         <a class="btn navbar-btn navbar-left {% if nbar == 'maxfax' %}active{% endif %}" 
-           id="id_maxfax" href={% url 'browse_by_year' %}>
+           href={% url 'browse_by_year' %}>
             MaxFax
         </a>
         <a class="btn navbar-btn navbar-left {% if nbar == 'photos' %}active{% endif %}" id="id_photos" href="#">Photos</a>
@@ -31,6 +31,8 @@
         <!-- todo add a second row of mostly static links: CAAMA FAC Tips Plans Links -->
     </div>
     </nav>
+    {% block extra_nav %}{% endblock %}
+    
     
     <div class="container">
     <h1>{% block header_text %}{% endblock %}</h1>
