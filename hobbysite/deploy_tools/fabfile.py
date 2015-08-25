@@ -34,7 +34,7 @@ def deploy():
     _update_settings(work_folder, site_url)
     #if not exists(django_project_root):
     #    run('ln -s %s/TDD/source %s' % (work_folder, site_root))
-    run('cp -r %s/hobbysite_project/hobbysite %s' % (work_folder, site_root))
+    run('cp -r %s/hobbysite %s' % (work_folder, site_root))
     _update_virtualenv(django_project_root)
     _update_static_files(django_project_root)
     _update_database(django_project_root)
@@ -56,7 +56,7 @@ def _get_latest_source(work_folder):
 
 
 def _update_settings(work_folder, site_name=env.host):
-    configuration_root = work_folder + '/hobbysite_project/hobbysite/hobbysite'
+    configuration_root = work_folder + '/hobbysite/hobbysite'
     settings_path = configuration_root + '/settings.py'
     sed(settings_path, "DEBUG = True", "DEBUG = False") 
     sed(settings_path, 'DOMAIN = "localhost"', 'DOMAIN = "%s"' % (site_name,))
