@@ -35,7 +35,7 @@ def deploy():
     #if not exists(django_project_root):
     #    run('ln -s %s/TDD/source %s' % (work_folder, site_root))
     run('cp -r %s/hobbysite %s' % (work_folder, site_root))
-    _update_virtualenv(django_project_root)
+    _update_virtualenv(work_folder)
     _update_static_files(django_project_root)
     _update_database(django_project_root)
 
