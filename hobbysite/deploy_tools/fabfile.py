@@ -28,7 +28,7 @@ def deploy():
    
     #site_root = '/home/%s/sites/%s' % (env.user, env.host)
     site_root = '/home/%s/sites/%s' % (env.user, site_dir)
-    source_folder = site_root + '/%s' % (DJANGO_NAME,)
+    django_project_root = site_root + '/%s' % (DJANGO_NAME,)
     _create_directory_structure_if_necessary(site_root)
     _get_latest_source(work_folder)
     _update_settings(work_folder, site_url)
@@ -68,23 +68,23 @@ def _update_settings(work_folder, site_name=env.host):
     append(settings_path, '\nfrom .secret_key import SECRET_KEY')
 
 
-def _update_virtualenv(source_folder):
+def _update_virtualenv(django_project_root):
     virtualenv_folder = '/home/ubuntu/sites/balsachips-staging/virtualenv'
     if not exists(virtualenv_folder + '/bin/pip'):
         run('virtualenv --python=python3 %s' % (virtualenv_folder,))
     run('%s/bin/pip install -r %s/requirements.txt' % (
-            virtualenv_folder, source_folder
+            virtualenv_folder, django_project_root
     ))
 
 
-def _update_static_files(source_folder):
+def _update_static_files(django_project_root):
     run('cd %s && ../virtualenv/bin/python3 manage.py collectstatic --noinput' % (
-        source_folder,
+        django_project_root,
     ))
 
 
-def _update_database(source_folder):
+def _update_database(django_project_root):
     run('cd %s && ../virtualenv/bin/python3 manage.py migrate --noinput' % (
-        source_folder,
+        django_project_root,
     ))
 
