@@ -56,7 +56,7 @@ def _get_latest_source(work_folder):
 
 
 def _update_settings(work_folder, site_name=env.host):
-    configuration_root = work_folder + 'hobbysite_project\hobbysite\hobbysite'
+    configuration_root = work_folder + 'hobbysite_project/hobbysite/hobbysite'
     settings_path = configuration_root + '/settings.py'
     sed(settings_path, "DEBUG = True", "DEBUG = False") 
     sed(settings_path, 'DOMAIN = "localhost"', 'DOMAIN = "%s"' % (site_name,))
