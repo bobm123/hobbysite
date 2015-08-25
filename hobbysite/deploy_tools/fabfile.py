@@ -78,13 +78,13 @@ def _update_virtualenv(django_project_root):
 
 
 def _update_static_files(django_project_root):
-    run('cd %s && ../virtualenv/bin/python3 manage.py collectstatic --noinput' % (
+    run('cd %s && /home/ubuntu/sites/balsachips-staging/virtualenv/bin/python3 manage.py collectstatic --noinput' % (
         django_project_root,
     ))
 
 
 def _update_database(django_project_root):
-    run('cd %s && ../virtualenv/bin/python3 manage.py migrate --noinput' % (
+    run('cd %s && /home/ubuntu/sites/balsachips-staging/virtualenv/bin/python3 manage.py migrate --noinput' % (
         django_project_root,
     ))
 
