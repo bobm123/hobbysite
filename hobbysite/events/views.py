@@ -9,10 +9,6 @@ mnames = "January February March April May June July August September October No
 mnames = mnames.split()
 
 
-def home_page(request):
-    return render(request, 'home.html', {'nbar': 'home'})
-
-
 def view_events(request):
     startdate = datetime.datetime.now()
     months_ = month_rages()
