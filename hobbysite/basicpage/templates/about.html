@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_title %}-Welcome{% endblock %}
+
+{% block header_text %}About our Club{% endblock %}
+
+{% block main_content %}
+<div class="row">
+  
+<div class="col-sm-12 col-md-6">
+<!-- ROW LEFT -->
+<dig class="row">
+<div class="col-sm-8">
+<p>
+The DC Maxecuters are model aviation enthusiasts. First organized in the 
+late 50’s, the club’s roots are in rubber-powered Free Flight, though members 
+actively pursue other facets of the model aircraft hobby, including electric 
+and gas-powered free-flight as well as radio control, especially micro R/C.
+</p>
+<p>
+We fly year-round, both in select indoor venues and outdoors in the fields. Members
+are typically also members of other model aviation clubs, including the
+<a href="http://www.modelaircraft.org/">Academy of Model Aeronautics (AMA)
+</a>, the <a href="http://www.freeflight.org/">National Free Flight Society
+(NFFS)</a>, the <a href="http://www.antiquemodeler.org/index.html">Society of 
+Antique Modelers (SAM)</a>, and of course 
+<a href="http://www.flyingacesclub.com/" title="The Flying Aces Club"> The 
+Flying Aces Club (FAC)</a>
+</p>
+
+<h3>Newsletter</h3> 
+<p>
+The Maxecuters publish a quarterly journal, MAX-FAX. All members receive 
+a copy. We try to produce a varied and stimulating source of free flight scale 
+information, including plans, articles, construction and flying techniques and 
+photos.
+</p>
+<p>
+Dues for membership are now <b>$25</b> per year for residents of the USA, Canada and 
+Mexico, and <b>$35</b> for all other countries. <br>
+<b>Postage rates have caused us to raise these prices as of 2013.</b><br>
+Send a check, payable to the 
+"D.C. MAXECUTERS" to the Treasurer:</p>
+<p>
+&nbsp;&nbsp;Stew  Meyers<br/>
+&nbsp;&nbsp;8304 Whitman Dr.<br/>
+&nbsp;&nbsp;Bethesda, MD 20817<br/> 
+</p>
+<p>
+To join or renew on-line go to <a href="{% url 'browse_by_year' %}">MaxFax </a>
+</p>
+</div>
+
+<div class="col-sm-4">
+<h3>Club Officers</h3>
+
+<table border="0" cellpadding="0" cellspacing="0" style="background-color: #d3c499">
+
+<tr valign="top">
+  <td style="padding:5; height:2em; font-size: 10pt">President:<br>Glen Simpers</td>
+</tr>
+<tr valign="top" align="center">
+  <td style="padding:5; height:2em; font-size: 10pt"><img src="{% static 'images/Glen.jpg' %}" alt="Glen"></td>
+</tr>
+
+<tr valign="top">
+  <td style="padding:5; height:2em; font-size: 10pt" ><br>Secretary:<br> Dave Mitchell</td>
+</tr>
+<tr valign="top" align="center">
+  <td style="padding:5; height:2em; font-size: 10pt"><img src="{% static 'images/Dave.jpg' %}" alt="Dave"></td>
+</tr>
+
+<tr valign="top">
+  <td style="padding:5; height:2em; font-size: 10pt"><br>Treasurer &amp; MaxFax Editor: Stew Meyers</td>
+</tr>
+<tr valign="top" align="center">
+  <td style="padding:5; height:2em; font-size: 10pt"><img src="{% static 'images/Stew.jpg' %}" alt="Stew"></td>
+</tr>
+
+<tr valign="top">
+  <td style="padding:5; height:2em; font-size: 10pt"><br>Safety Officer: Ray Rakow</td>
+</tr>
+<tr valign="top" align="center">
+  <td style="padding:5; height:2em; font-size: 10pt"><img src="{% static 'images/RayRakow.png' %}" alt="Ray"></td>
+</tr>
+
+</table>
+</div>
+
+</div> <!-- closes left column -->
+<div class="col-sm-12 col-md-6">
+<h3>Our Planes</h3>
+<p>
+Free flight models fly on their own after launch. They follow the wind and 
+soar in rising thermal currents of warm air and set their own course without 
+any control from the ground. If you have ever tossed a folded paper airplane 
+or a dime store balsa glider, you have flown a free flight model in its most 
+basic form.
+</p>
+<p>
+Free Flight models usually are trimmed to fly in circles to reduce the 
+probability of a fly away. The model airplanes we fly are usually hand-built, 
+primarily from balsawood and tissue paper. We sometimes use modern materials 
+such as carbon fiber and foam, but for the most part we make these models 
+using the same materials and methods as that a kid in the 1930s.
+</p>
+<p>
+<img src="{% static 'images/raeford.jpg' %}" width="100%" alt="" border="0"/>
+<div align="center">
+<b>Mass launch at the Kudzu Meet</b> - Last one down wins!
+</div>
+</p>
+<p>
+Somethings HAVE changed though, especially the quality of rubber that is
+used for motors. Free Flight modelers have increased their average flight 
+times considerably over the “old days”. Flights of 40 to 60 seconds are 
+fairly commonplace, with everyone angling for the coveted “max” flight of 
+120 seconds or better. With such long flight times and no method of controlling
+the model once it has been launched, many models fly OOS (out of sight), lifted 
+by thermals into the blue horizon.
+</p>
+</div> <!-- closes right column -->
+
+</div> <!-- closes class="row" -->
+
+{% endblock %}
+

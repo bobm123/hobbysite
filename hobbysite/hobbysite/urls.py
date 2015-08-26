@@ -13,6 +13,7 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', basic_views.home_page, name='home'),
+    url(r'^about$', basic_views.about_page, name='about'),
     url(r'^events', include(events_urls)),
     url(r'^maxfax', include(newsletter_urls)),
 ]
