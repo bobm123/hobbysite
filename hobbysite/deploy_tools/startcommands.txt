@@ -1,8 +1,0 @@
-sed "s/SITENAME/balsachips-staging/g" deploy_tools/nginx.template.conf | sudo tee /etc/nginx/sites-available/balsachips-staging.net
-
-sudo ln -s ../sites-available/balsachips-staging.net /etc/nginx/sites-enabled/balsachips-staging.net
-
-sed "s/SITENAME/balsachips-staging/g" deploy_tools/gunicorn-upstart.template.conf | sudo tee /etc/init/gunicorn-balsachips.net.conf
-
-sudo service nginx reload
-sudo start gunicorn-balsachips.net
