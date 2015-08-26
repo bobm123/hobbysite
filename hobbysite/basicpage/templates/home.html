@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block page_title %}-Welcome{% endblock %}
 
-{% block header_text %}Welcome!{% endblock %}
+{% block header_text %}
+    <div class="text-center">
+    DC Maxecuters Model Airplane Club
+    </div> <!--closes "text-center" -->
+{% endblock %}
 
 {% block main_content %}
+    <div class="text-center">
 
+    <img src="{% static 'images/MaxecuterGoldWings.gif' %}" alt="MAX WINGS" title=""><br/>
+    <h3>Home of the dreaded<br/><em>POTOMAC PURSUIT SQUADRON</em><br/>of the Flying Aces Club<br/></h3>
+    <br/>
+	Click <a href="#">Annoucements</a> for the latest information.</p>
+	Remember to refresh your browser to get the latest update!</p>
+
+    We also host the Capital Area Antique Modelers Association, <a href="#">CAAMA</a>
+    </div> <!--closes "text-center" -->
 {% endblock %}
 
