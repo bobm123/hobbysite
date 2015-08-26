@@ -19,6 +19,10 @@ CONFIGURATION_ROOT="hobbysite"
 # github repo url
 REPO_URL = 'https://github.com/bobm123/hobbysite_project.git'
 
+#
+# location of the virtual environment
+VIRTUALENV_ROOT='/home/ubuntu/envs/hobbysite/'
+
 
 def deploy():
     work_folder = '/home/%s/work' % env.user
@@ -41,7 +45,7 @@ def deploy():
 
 
 def _create_directory_structure_if_necessary(site_root):
-    proj_folders = ('database', 'static', 'virtualenv', DJANGO_NAME)
+    proj_folders = ('database', 'static', DJANGO_NAME)
     for pf in proj_folders:
         run('mkdir -p %s/%s' % (site_root, pf))
 
@@ -69,7 +73,7 @@ def _update_settings(work_folder, site_name=env.host):
 
 
 def _update_virtualenv(django_project_root):
-    virtualenv_folder = '/home/ubuntu/sites/balsachips-staging/virtualenv'
+    virtualenv_folder = VIRTUALENV_ROOT
     if not exists(virtualenv_folder + '/bin/pip'):
         run('virtualenv --python=python3 %s' % (virtualenv_folder,))
     run('%s/bin/pip install -r %s/requirements.txt' % (
@@ -78,13 +82,13 @@ def _update_virtualenv(django_project_root):
 
 
 def _update_static_files(django_project_root):
-    run('cd %s && /home/ubuntu/sites/balsachips-staging/virtualenv/bin/python3 manage.py collectstatic --noinput' % (
-        django_project_root,
+    run('cd %s && %s/bin/python3 manage.py collectstatic --noinput' % (
+        django_project_root, VIRTUALENV_ROOT
     ))
 
 
 def _update_database(django_project_root):
-    run('cd %s && /home/ubuntu/sites/balsachips-staging/virtualenv/bin/python3 manage.py migrate --noinput' % (
-        django_project_root,
+    run('cd %s && %s/bin/python3 manage.py migrate --noinput' % (
+        django_project_root, VIRTUALENV_ROOT
     ))
 
