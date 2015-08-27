@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
 {% block page_title %}-MaxFax{% endblock %}
 
+{% block header_text %}MaxFax{% endblock %}
+
 {% block extra_nav %}
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
 {% for ylabel in filter_keys %}
@@ -15,25 +18,33 @@
     </div>
   </nav>
 {% endblock %}
-
-{% block header_text %}MaxFax{% endblock %}
     
 {% block main_content %}
 
-    <h3>MaxFax Archive for {{ year }}</h3>
+    <h3>Archive for {{ year }}</h3>
+    <div class="row">
     {% for newsletter in newsletters %}
-        <div class="col-md-2">
-        <a href="{% static 'contents' %}/{{ newsletter.pdf }}" target="_new">
-            {{ newsletter.name }}<br/>
-            <img src="{% static 'contents' %}/{{ newsletter.cover }}" width="150" alt="Cover" title=""><br/>
-        </a>
-        {{ newsletter.description }}<br/>
-        <br/>
+        <div class="col-xs-12 col-sm-4">
+        <div class="thumbnail">
+            <br/>
+            <a href="{% static 'contents' %}/{{ newsletter.pdf }}" target="_new">
+                <img src="{% static 'contents' %}/{{ newsletter.cover }}" width="150" alt="Cover" style="border:2px solid grey"><br/>
+            </a>
+            <div class="caption">
+                <a href="{% static 'contents' %}/{{ newsletter.pdf }}" target="_new">
+                    <h4>{{ newsletter.name }}</h4>
+                </a>
+                <p>Contents: {{ newsletter.description }}</p>
+            </div>
+        </div>
         </div>
     {% empty %}
-        <div class="col-md-2">
-        Sorry, no issues found for {{ year }}
+        <div class="col-xs-12 col-sm-4">
+        <div class="thumbnail">
+        Sorry, no issues found
+        </div>
         </div>
     {% endfor %}
+    </div>
 
 {% endblock %}
