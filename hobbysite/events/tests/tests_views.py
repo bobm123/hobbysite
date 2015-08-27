@@ -2,7 +2,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 
-from events.views import home_page
+from basicpage.views import home_page
 
 
 class EventsPageTest(TestCase):
