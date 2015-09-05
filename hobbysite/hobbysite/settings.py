@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hjnspmi4)vkazf_+ry@2egt$d%5=m(qh0g5nwiistc%2jsr2h!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # This setting is changed by the deploy script
 DOMAIN = "localhost"
@@ -110,4 +110,3 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
-from .secret_key import SECRET_KEY
