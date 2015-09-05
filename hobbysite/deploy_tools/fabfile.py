@@ -26,7 +26,7 @@ VIRTUALENV_ROOT='/home/ubuntu/envs/hobbysite/'
 
 def deploy():
     work_folder = '/home/%s/work' % env.user
-    site_url = 'balsachips.net'
+    site_domain = 'balsachips.net'
     site_dir = 'hobbysite-staging'
     #site_dir = 'balsachips-live'
    
