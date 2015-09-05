@@ -35,7 +35,7 @@ def deploy():
     django_project_root = site_root + '/%s' % (DJANGO_NAME,)
     _create_directory_structure_if_necessary(site_root)
     _get_latest_source(work_folder)
-    _update_settings(work_folder, site_url)
+    _update_settings(work_folder, site_domain)
     #if not exists(django_project_root):
     #    run('ln -s %s/TDD/source %s' % (work_folder, site_root))
     run('cp -r %s/hobbysite %s' % (work_folder, site_root))
