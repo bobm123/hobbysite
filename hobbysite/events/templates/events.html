@@ -12,19 +12,32 @@
     {% if item.1 %}
       <div class="container-fluid">
         {% for event in item.1 %}
-            <strong><a href="{{ event.flyer }}" target=_new>{{ event.name }}</a> - {{ event.date }}</strong><br/>
-            Location: {{ event.location }}<br/>
-            Contact: {% if event.contact_email %}
-                <a href="mailto:{{ event.contact_email }}">{{ event.contact_name }}</a>
-            {% else %}
-                {{ event.contact_name }}
+            <strong><a href="{{ event.flyer }}" target=_new>{{ event.name }}</a></strong><br/>
+            <table>
+            <tr><td>
+            Date:</td><td> {{ event.date }} 
+            {% if event.end_date %}
+            - {{ event.end_date }}
             {% endif %}
-            {% if event.contact_phone %}
-                , {{ event.contact_phone }}<br/>
+            </td></tr>
+            <tr><td>Location:&nbsp</td><td>{{ event.location }}</td></tr>
+            
+            <tr><td>Contact:</td>
+            <td>
+            {% if event.contact_email and event.contact_phone %}
+                <a href="mailto:{{ event.contact_email }}">{{ event.contact_name }}</a>, {{ event.contact_phone }}
             {% else %}
+                {% if event.contact_email  %}
+                    <a href="mailto:{{ event.contact_email }}">{{ event.contact_name }}</a>
+                {% elif event.contact_phone  %}
+                    {{ event.contact_name }}, {{ event.contact_phone }}
+                {% else %}
+                    {{ event.contact_name }}
+                {% endif %}
+            {% endif %}</td></tr>
+            </table>
             <br/>
-            {% endif %}
-            <br/>
+          
         {% endfor %}
       <div>
     {% endif %}
