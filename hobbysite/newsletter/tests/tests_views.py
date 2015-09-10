@@ -11,7 +11,7 @@ class NewsletterPageTest(TestCase):
         found = resolve('/maxfax')
         self.assertEqual(found.func, browse_by_year)
 
-    def test_home_page_renders_home_template(self):
+    def test_newsletter_uses_template(self):
         response = self.client.get('/maxfax')
         self.assertTemplateUsed(response, 'newsletter.html')
         

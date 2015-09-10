@@ -2,4 +2,7 @@ from django.contrib import admin
 
 from .models import Newsletter
 
-admin.site.register(Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    pass
+    
+admin.site.register(Newsletter, NewsletterAdmin)
