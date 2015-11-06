@@ -1,23 +1,43 @@
 {% load staticfiles %}
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-  <div class="navbar-header">
-    <!-- todo use the file tab formatting from site -->
-    <!--a class="navbar-brand" href="/"-->
-    <a class="pull-left" href="/">
-      <img src="{% static 'images/MaxecuterGoldWings.gif' %}" width="100" alt="Max Logo" title="DC Maxecuters">
-    </a>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="level-1">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="pull-left" href="/">
+          <img src="{% static 'images/MaxecuterGoldWings.gif' %}" width="90" alt="Max Logo" title="DC Maxecuters">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li {% if nbar == 'about' %}class = "active"{% endif %}><a href={% url 'about' %}>About</a></li>
+          <li {% if nbar == 'anno' %}class = "active"{% endif %}><a href={% url 'anno' %}>Announcements</a></li>
+          <li {% if nbar == 'meetings' %}class = "active"{% endif %}><a href="#">Meetings</a></li>
+          <li {% if nbar == 'maxfax' %}class = "active"{% endif %}><a href="{% url 'browse_by_year' %}">MaxFax</a></li>
+          <li {% if nbar == 'photos' %}class = "active"{% endif %}><a href="#">Photos</a></li>
+          <li {% if nbar == 'events' %}class = "active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+            <p class="navbar-btn navbar-right"><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-default">Sign out</a></p>
+        {% else %}
+            <p class="navbar-btn navbar-right"><a href="{% url 'login' %}?next={{request.path}}" class="btn btn-default">Sign in</a></p>
+        {% endif %}
+    </div>
+    <!--div class="level-2">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li {% if nbar == 'caama' %}class = "active"{% endif %}><a href="#">CAAMA</a></li>
+          <li {% if nbar == 'fac' %}class = "active"{% endif %}><a href="#">FAC</a></li>
+          <li {% if nbar == 'Tips' %}class = "active"{% endif %}><a href="#">Building Tips</a></li>
+          <li {% if nbar == 'Plans' %}class = "active"{% endif %}><a href="#">Plans</a></li>
+          <li {% if nbar == 'Links' %}class = "active"{% endif %}><a href="#">Links</a></li>
+        </ul>
+      </div -->
+    </div>
   </div>
-  <div>
-    <ul class="nav navbar-nav">
-      <li {% if nbar == 'about' %}class = "active"{% endif %}><a href={% url 'about' %}>About</a></li>
-      <li {% if nbar == 'anno' %}class = "active"{% endif %}><a href={% url 'anno' %}>Announcements</a></li>
-      <li {% if nbar == 'meetings' %}class = "active"{% endif %}><a href="#">Meetings</a></li>
-      <li {% if nbar == 'maxfax' %}class = "active"{% endif %}><a href="{% url 'browse_by_year' %}">MaxFax</a></li>
-      <li {% if nbar == 'photos' %}class = "active"{% endif %}><a href="#">Photos</a></li>
-      <li {% if nbar == 'events' %}class = "active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
-    </ul>
-  </div>
-
-</div>
 </nav>
+	

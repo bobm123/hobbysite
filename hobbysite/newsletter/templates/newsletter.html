@@ -21,6 +21,10 @@
     
 {% block main_content %}
 
+    {% if user.is_authenticated %}
+    <p> Authenticated User</p>
+    {% endif %}
+
     <h3>Archive for {{ year }}</h3>
     <div class="row">
     {% for newsletter in newsletters %}

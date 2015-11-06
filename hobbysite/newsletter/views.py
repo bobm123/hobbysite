@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from newsletter.models import Newsletter
 
+from django.contrib.auth import authenticate, login
+
 
 def browse_by_year(request, year='2015'):
     newsletters = Newsletter.objects.filter(

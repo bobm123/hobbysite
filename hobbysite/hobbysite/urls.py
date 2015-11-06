@@ -2,9 +2,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from basicpage import views as basic_views
+from hobbysite import views as hobbysite_views
+
 from events import urls as events_urls
 from newsletter import urls as newsletter_urls 
-
 
 urlpatterns = [
     # Examples:
@@ -17,4 +18,11 @@ urlpatterns = [
     url(r'^anno$', basic_views.anno_page, name='anno'),
     url(r'^events', include(events_urls)),
     url(r'^maxfax', include(newsletter_urls)),
+
+    url(r'^accounts/login/$', hobbysite_views.login, name='login'),
+    url(r'^accounts/auth/$', 'hobbysite.views.auth_view'),
+    url(r'^accounts/logout/$', hobbysite_views.logout, name='logout'),
+    url(r'^accounts/loggedin/$', 'hobbysite.views.loggedin'),
+    url(r'^accounts/invalid/$', 'hobbysite.views.invalid_login'),
+
 ]
