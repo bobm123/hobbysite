@@ -16,7 +16,7 @@ def auth_view(request):
   user = auth.authenticate(username=username, password=password)
 
   if user is None:
-    return HttpResponseRedirect('/accounts/login')
+    return HttpResponseRedirect('/accounts/login') # was /accounts/invalid
 
   auth.login(request, user)
   if request.POST.get('next', '') != '':
