@@ -20,9 +20,8 @@ urlpatterns = [
     url(r'^maxfax', include(newsletter_urls)),
 
     url(r'^accounts/login/$', hobbysite_views.login, name='login'),
-    url(r'^accounts/auth/$', 'hobbysite.views.auth_view'),
+    url(r'^accounts/auth/$', hobbysite_views.auth_view, name='auth_view'),
     url(r'^accounts/logout/$', hobbysite_views.logout, name='logout'),
-    url(r'^accounts/loggedin/$', 'hobbysite.views.loggedin'),
-    url(r'^accounts/invalid/$', 'hobbysite.views.invalid_login'),
-
+    #url(r'^accounts/loggedin/$', 'hobbysite.views.loggedin'),
+    #url(r'^accounts/invalid/$', 'hobbysite.views.invalid_login'),
 ]

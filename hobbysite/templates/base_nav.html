@@ -21,10 +21,12 @@
           <li {% if nbar == 'photos' %}class = "active"{% endif %}><a href="#">Photos</a></li>
           <li {% if nbar == 'events' %}class = "active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
         </ul>
-        {% if user.is_authenticated %}
-            <p class="navbar-btn navbar-right"><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-default">Sign out</a></p>
-        {% else %}
-            <p class="navbar-btn navbar-right"><a href="{% url 'login' %}?next={{request.path}}" class="btn btn-default">Sign in</a></p>
+        {% if not hide_login_btn %}
+          {% if user.is_authenticated %}
+              <p class="navbar-btn navbar-right"><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-default">Sign out</a></p>
+          {% else %}
+              <p class="navbar-btn navbar-right"><a href="{% url 'login' %}?next={{request.path}}" class="btn btn-default">Sign in</a></p>
+          {% endif %}
         {% endif %}
     </div>
     <!--div class="level-2">

@@ -5,8 +5,13 @@ from django.core.context_processors import csrf
 
 
 def login(request):
-  c = {'next': request.GET.get('next', '')}
+  print(request.GET)
+  c = {'hide_login_btn': True}
+  c.update({'next': request.GET.get('next', '/')})
+  if 'error' in request.GET:
+    c.update({'error': True})
   c.update(csrf(request))
+  print(c)
   return render_to_response('login.html', c)
 
 
@@ -15,25 +20,23 @@ def auth_view(request):
   password = request.POST.get('password', '')
   user = auth.authenticate(username=username, password=password)
 
-  if user is None:
-    return HttpResponseRedirect('/accounts/login') # was /accounts/invalid
-
-  auth.login(request, user)
-  if request.POST.get('next', '') != '':
-    return HttpResponseRedirect(request.POST['next'])
+  if user is not None:
+    auth.login(request, user)
+    print("Valid User")
+    return HttpResponseRedirect(request.POST.get('next', '/')) 
   else:
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/accounts/login/?error=')
 
 
-def loggedin(request):
-  return render_to_response('loggedin.html',
-                            {'full_name': request.user.username})
+#def loggedin(request):
+#  return render_to_response('loggedin.html',
+#                            {'full_name': request.user.username})
 
-def invalid_login(request):
-  return render_to_response('invalid_login.html')
+#def invalid_login(request):
+#  return render_to_response('invalid_login.html')
 
 
 def logout(request):
   auth.logout(request)
-  return render_to_response('logout.html')
+  return HttpResponseRedirect(request.GET.get('next', '/')) 
 
