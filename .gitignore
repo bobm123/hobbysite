@@ -63,3 +63,8 @@ collection/media
 
 # Ignoring .pdf files (for now)
 *.pdf
+
+database/
+static/
+
+
