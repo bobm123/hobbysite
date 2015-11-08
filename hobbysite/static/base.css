@@ -5,16 +5,11 @@ body {
 
 .navbar-default {
     background-color: #9BDADA;
-    border-color: #ABFAFA;
 }
+
 
 #id_text {
     margin-top: 2ex;
 }
 
-.level-2 li a {
-    line-height: 30px;
-    height: 30px;
-    padding-top: 0;
- }
 
